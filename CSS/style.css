@@ -13,35 +13,122 @@
 
 html{
     font-size: 62.5%;
+    box-sizing: border-box;
 }
+*, *:before, *:after { box-sizing: inherit;}
 
 body{
-    font-size: 16px;
+    font-size: 16px; /*1 REM = 10PX*/
     font-family: var(--fuente-principal);
+    background-image: linear-gradient(to top, #C1DFC4 0%, var(--blanco) 100%);
+    
 }
 
-.titulo{
-    font-size: 3rem;
-    text-align: center;
+h1{ font-size: 3.8rem;}
+h2{ font-size: 2.8rem;}
+h3{ font-size: 1.8rem;}
+h1, h2, h3{ text-align: center;}
 
-}
+
+
 .titulo span{
     font-size: 2rem;
 }
 .contendor{
-    width: 120rem;
+    max-width: 120rem;
     margin: 0 auto;
-
 }
+
+.boton{
+    background-image: linear-gradient(to right, #003973 0%, #E5E5BE 51%, #003973 100%);
+    margin: 10px;
+    padding: 1rem 3rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bolder;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: .5rem;
+    display: block;
+    outline: none;
+    border: none;
+    width: 85%;
+    
+}
+
+.boton:hover {
+    background-position: right center;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (min-width: 480px) { 
+    .boton{
+        width: auto;
+    }
+}
+
+/* UTILIDADES */
+.w-100{
+    width: 100%;
+}
+@media (min-width: 768px) { 
+    .w-100{
+    width: auto;
+}
+}
+.flex{
+    display: flex;
+}
+.enviar{
+    justify-content: flex-end;
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(109,112,116,0.5);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(109,112,116,0.5);
+    box-shadow: 0px 5px 15px 0px rgba(109,112,116,0.5);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
 .nav-bg{
     background-color: var(--secundario);
 }
 .navegacion-principal{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;  
 }
 
+
+/* PARA TABLET */
+@media (min-width: 768px) { 
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;
+}
+    }
+
+
+@media (min-width: 480px) { 
+    
+}
+/* PARA LAPTOP O COMPUTADORADE ESCRITORIO 
+@media (min-width: 1140px) { 
+}*/
+
+/* PARA TELEFONOS
+@media (min-width: 480px) { 
+}*/
+
+
 .navegacion-principal a{
+    display: block;
+    text-align: center;
     color: var(--blanco);
     text-decoration: none;
     font-size: 2rem;
@@ -52,4 +139,162 @@ body{
 .navegacion-principal a:hover{
     background-color: var(--principal);
     color: var(--negro);
+}
+
+.hero{
+    background-image: url(../IMG/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+
+}
+
+.contenido-hero{
+    position: absolute;
+    /* TRANSPARENCIA EN LA IMAGENES */
+    background-color: rgba(0, 0, 0, .5);/* ANTERIOR */
+    background-color: rgb(0 0 0 / 0.5);/* NUEVA */
+    width: 100%;    
+    height: 100%;
+
+/* CODIGO PARA ALINMEAR VERTICAL COMO HORIZONTAL */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenedor-ubicacion, 
+.ciudad, 
+.sector{
+    color: var(--blanco);
+}
+
+.contenido-hero .ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+
+.ciudad {
+  font-weight: bold;
+  font-size: 18px;         /* Tamaño de la primera línea */
+  margin-bottom: 2px;      /* Espacio mínimo antes de la línea de abajo */
+}
+.sector {
+  font-size: 14px;         /* Tamaño de la segunda línea (un poco más pequeña para dar jerarquía) */
+  opacity: 0.9;            /* Opcional: un tono sutilmente más suave para el subtítulo */
+}
+
+
+
+@media (min-width: 768px) { 
+    .servicios{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;/* SEPARACION DE COLUMNAS */
+}
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: bold;
+}
+
+.servicio p{
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--principal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* formulario codigo */
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%); /* UTILIZAR EL VALOR MAS PEQUEÑO */
+    margin: 0 auto; /*ES PARA CENTRAR HORIZONTALMENTE PARA FORMULARIO Y TAMBIEN TIENE QUE EL PADRE NO SER UN DISPLAY: FLEX; */
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to top, #000 0%, var(--gris) 100%);
+}
+
+.formulario fieldset{
+    border: none;
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: var(--principal);
+}
+
+@media (min-width: 768px) { 
+    .contenedor-campos{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    column-gap: 1rem; /* Espacio entre las columnas */
+    grid-template-rows: auto auto 20rem; /*  */
+    gap: 1rem; /* Espacio entre los campos */
+}
+}
+/* CODIGO PARA QUE OCUPE TODO EL ANCHO EL CORREO */
+.campo:nth-child(3),
+.campo:nth-child(4){ 
+    grid-column: 1 / 3; /* Ocupa ambas columnas */
+    
+}
+
+.campo{
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label{
+    font-weight: bold;
+    margin-bottom: .5rem;
+    color: var(--blanco);
+    display: block;
+}
+.campo input{
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.campo .textarea{
+    height: 20rem;
+}
+
+.footer{
+    color: var(--negro);
+    text-align: center;
+    padding: 2rem;
 }
